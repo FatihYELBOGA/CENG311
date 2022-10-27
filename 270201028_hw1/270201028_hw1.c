@@ -111,6 +111,8 @@ void when_users_number_is_1(dynamic_array* array){
 
 void when_users_number_is_2(dynamic_array* array){
 
+    int songExist = 0;
+
     if(array -> size != 0){
         
         char* songName = (char*) malloc(64 * sizeof(char));
@@ -122,13 +124,17 @@ void when_users_number_is_2(dynamic_array* array){
 
             if (element != NULL){
                 if(strcmp(element -> name, songName)==0){
+                    songExist = 1;
                     remove_element(array, i);
                     break;
                 }
             }
         }
     }else
-        printf("No song removed the list!\n");
+        printf("No song removed in the list!\n");
+
+    if(songExist == 0)
+        printf("The song not found in the list!\n");
 }
 
 void when_users_number_is_3(dynamic_array* array){
@@ -144,7 +150,7 @@ void when_users_number_is_3(dynamic_array* array){
             }
         }
     }else
-        printf("No song the list!\n");
+        printf("No song displayed in the list!\n");
 }
 
 int main(){
